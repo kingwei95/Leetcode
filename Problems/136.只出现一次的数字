@@ -1,0 +1,11 @@
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        for i in range(0,int(len(nums)/2)+1):
+            if nums[0] in nums[1:]:
+                
+                del nums[len(nums)-nums[::-1].index(nums[0])-1]
+                nums.remove(nums[0])
+                #print("modified",i,nums)
+            else:
+                break
+        return nums[0]
